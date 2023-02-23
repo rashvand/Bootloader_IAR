@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<settings>
+    <Theme>
+        <XFont_0>_ 0 192 192 192 0</XFont_0>
+        <XFont_1>_ 1 74 201 150 0</XFont_1>
+        <XFont_2>_ 0 215 134 100 0</XFont_2>
+        <XFont_3>_ 0 255 128 0 0</XFont_3>
+        <XFont_4>_ 0 196 134 191 0</XFont_4>
+        <XFont_5>_ 0 192 192 192 0</XFont_5>
+        <XFont_6>_ 0 0 0 0 0</XFont_6>
+        <XFont_7>_ 0 0 0 0 0</XFont_7>
+        <XFont_8>_ 0 0 0 0 0</XFont_8>
+        <XFont_9>_ 2 0 128 0 0</XFont_9>
+        <XFont_10>_ 2 0 128 0 0</XFont_10>
+        <XFont_11>_ 2 128 255 255 0</XFont_11>
+        <XFont_12>_ 2 128 255 255 0</XFont_12>
+        <XFont_13>_ 2 128 255 255 0</XFont_13>
+        <XFont_14>_ 2 0 140 0 0</XFont_14>
+        <XFont_15>_ 2 107 153 87 0</XFont_15>
+        <XFont_16>_ 2 0 128 128 0</XFont_16>
+        <XFont_17>_ 1 128 0 0 0</XFont_17>
+        <XFont_18>_ 0 255 255 255 0</XFont_18>
+        <XFont_19>_ 0 108 207 252 0</XFont_19>
+        <XFont_20>_ 0 255 0 0 0</XFont_20>
+        <XFont_21>_ 0 128 128 128 0</XFont_21>
+        <XFontBaseEx>_ 30 30 30 0</XFontBaseEx>
+        <XFontBase>_ "Consolas" 11 0 22</XFontBase>
+        <Modified>_ 1</Modified>
+        <Type>_ "DarkMode"</Type>
+        <FixedFont>_ "Courier New" 10 0</FixedFont>
+        <PropFont>_ "MS Sans Serif" 10 0</PropFont>
+        <Name>_ "DarkMode - (Modified)"</Name>
+    </Theme>
+</settings>

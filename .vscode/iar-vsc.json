@@ -1,0 +1,5 @@
+{
+    "ewp": "${workspaceFolder}\\EWARM\\Bootloader_IAR.ewp",
+    "configuration": "Bootloader_IAR",
+    "toolchain": "C:\\\\Program Files\\\\IAR Systems\\\\Embedded Workbench 9.1"
+}
