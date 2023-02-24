@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "D:\Working\Shirzad\Code\Bootloader_IAR\EWARM\settings\Bootloader_IAR.Bootloader_IAR.general.xcl" --backend -f "D:\Working\Shirzad\Code\Bootloader_IAR\EWARM\settings\Bootloader_IAR.Bootloader_IAR.driver.xcl" 
+"C:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "D:\Git\rashvand\Bootloader_IAR\EWARM\settings\Bootloader_IAR.Bootloader_IAR.general.xcl" --backend -f "D:\Git\rashvand\Bootloader_IAR\EWARM\settings\Bootloader_IAR.Bootloader_IAR.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "D:\Working\Shirzad\Code\Bootloader_IAR\EWARM\settings\Bootloader_IAR.Bootloader_IAR.general.xcl" "--debug_file=%~1" --backend -f "D:\Working\Shirzad\Code\Bootloader_IAR\EWARM\settings\Bootloader_IAR.Bootloader_IAR.driver.xcl" 
+"C:\Program Files\IAR Systems\Embedded Workbench 9.1\common\bin\cspybat" -f "D:\Git\rashvand\Bootloader_IAR\EWARM\settings\Bootloader_IAR.Bootloader_IAR.general.xcl" "--debug_file=%~1" --backend -f "D:\Git\rashvand\Bootloader_IAR\EWARM\settings\Bootloader_IAR.Bootloader_IAR.driver.xcl" 
 
 @echo off 
 :end

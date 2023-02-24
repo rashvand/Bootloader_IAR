@@ -1,5 +1,5 @@
-D:\Working\Shirzad\Code\Bootloader_IAR\EWARM\Bootloader_IAR\BrowseInfo\FatFS\ff.pbi: \
-  D:\Working\Shirzad\Code\Bootloader_IAR\CM\FATFS\ff.c \
+D:\Git\rashvand\Bootloader_IAR\EWARM\Bootloader_IAR\BrowseInfo\FatFS\ff.pbi: \
+  D:\Git\rashvand\Bootloader_IAR\CM\FATFS\ff.c \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\string.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\ycheck.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\yvals.h \
@@ -8,10 +8,10 @@ D:\Working\Shirzad\Code\Bootloader_IAR\EWARM\Bootloader_IAR\BrowseInfo\FatFS\ff.
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\DLib_Product.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\ysizet.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\DLib_Product_string.h \
-  D:\Working\Shirzad\Code\Bootloader_IAR\CM\FATFS\ff.h \
-  D:\Working\Shirzad\Code\Bootloader_IAR\CM\FATFS\ffconf.h \
+  D:\Git\rashvand\Bootloader_IAR\CM\FATFS\ff.h \
+  D:\Git\rashvand\Bootloader_IAR\CM\FATFS\ffconf.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\stdint.h \
-  D:\Working\Shirzad\Code\Bootloader_IAR\CM\FATFS\diskio.h \
+  D:\Git\rashvand\Bootloader_IAR\CM\FATFS\diskio.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\stdarg.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\math.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\DLib_float_setup.h

@@ -1,7 +1,7 @@
-D:\Working\Shirzad\Code\Bootloader_IAR\EWARM\Bootloader_IAR\BrowseInfo\FatFS\ffunicode.pbi: \
-  D:\Working\Shirzad\Code\Bootloader_IAR\CM\FATFS\ffunicode.c \
-  D:\Working\Shirzad\Code\Bootloader_IAR\CM\FATFS\ff.h \
-  D:\Working\Shirzad\Code\Bootloader_IAR\CM\FATFS\ffconf.h \
+D:\Git\rashvand\Bootloader_IAR\EWARM\Bootloader_IAR\BrowseInfo\FatFS\ffunicode.pbi: \
+  D:\Git\rashvand\Bootloader_IAR\CM\FATFS\ffunicode.c \
+  D:\Git\rashvand\Bootloader_IAR\CM\FATFS\ff.h \
+  D:\Git\rashvand\Bootloader_IAR\CM\FATFS\ffconf.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\stdint.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\ycheck.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\yvals.h \

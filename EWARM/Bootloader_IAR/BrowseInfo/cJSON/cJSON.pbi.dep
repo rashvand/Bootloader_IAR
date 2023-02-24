@@ -1,5 +1,5 @@
-D:\Working\Shirzad\Code\Bootloader_IAR\EWARM\Bootloader_IAR\BrowseInfo\cJSON\cJSON.pbi: \
-  D:\Working\Shirzad\Code\Bootloader_IAR\CM\cJSON\cJSON.c \
+D:\Git\rashvand\Bootloader_IAR\EWARM\Bootloader_IAR\BrowseInfo\cJSON\cJSON.pbi: \
+  D:\Git\rashvand\Bootloader_IAR\CM\cJSON\cJSON.c \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\string.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\ycheck.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\yvals.h \
@@ -16,5 +16,5 @@ D:\Working\Shirzad\Code\Bootloader_IAR\EWARM\Bootloader_IAR\BrowseInfo\cJSON\cJS
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\limits.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\ctype.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\float.h \
-  D:\Working\Shirzad\Code\Bootloader_IAR\CM\cJSON\cJSON.h \
+  D:\Git\rashvand\Bootloader_IAR\CM\cJSON\cJSON.h \
   C:\Program\ Files\IAR\ Systems\Embedded\ Workbench\ 9.1\arm\inc\c\stddef.h

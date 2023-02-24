@@ -2,7 +2,7 @@
 
 "C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\bin\armSTLINK.dll" 
 
-"D:\Working\Shirzad\Code\Bootloader_IAR\EWARM\Bootloader_IAR\Exe\Bootloader_IAR.out" 
+"D:\Git\rashvand\Bootloader_IAR\EWARM\Bootloader_IAR\Exe\Bootloader_IAR.out" 
 
 --plugin="C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\bin\armbat.dll" 
 

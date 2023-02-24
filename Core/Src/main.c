@@ -43,6 +43,8 @@ struct _Boot{
   bool forceupdate;
 }Boot;
 
+bool DebugMode = false;
+
 int main(void){
   
   QSPI_CommandTypeDef s_command = {0};
@@ -59,6 +61,8 @@ int main(void){
   
   SystemClock_Config();
   
+  HAL_Delay(50);
+  
   MX_GPIO_Init();
   MX_QUADSPI_Init();
   MX_SPI2_Init();
@@ -71,7 +75,7 @@ int main(void){
  
 #if(0)
   if(BSP_QSPI_Erase_Chip() == QSPI_OK){ // ~37 sec
-    printf("QSPI Full erased\n");
+    if(DebugMode) printf("QSPI Full erased\n");
   }
 #endif
   
@@ -91,10 +95,10 @@ int main(void){
   MKFS_PARM mkfs_parm_Flash = { .fmt = FM_ANY, .n_fat = 2, .align = 1 };
   fr = f_mkfs("/flash", &mkfs_parm_Flash, NULL, FF_MAX_SS);
   if (fr == FR_OK){
-    printf("Flash f_mkfs Ok!\r\n");
+    if(DebugMode) printf("Flash f_mkfs Ok!\r\n");
   }
   else{
-    printf("Flash f_mkfs Error, error code:%d.\r\n",fr);
+    if(DebugMode) printf("Flash f_mkfs Error, error code:%d.\r\n",fr);
     while(1);
   }
 #endif
@@ -103,10 +107,10 @@ int main(void){
   // Flash
   fr = f_mount(&FlashFatFs, "/flash", 0);
   if(fr == FR_OK){
-    printf("Flash mount ok!\r\n");
+    if(DebugMode) printf("Flash mount ok!\r\n");
   }
   else{
-    printf("Flash mount error, error code:%d.\r\n",fr);
+    if(DebugMode) printf("Flash mount error, error code:%d.\r\n",fr);
     while(1);
   }
   
@@ -114,20 +118,20 @@ int main(void){
   // PSRAM
   fr = f_mount(&PSRamFatFs, "/psram", 0);
   if(fr == FR_OK){
-    printf("PSRAM mount ok!\r\n");
+    if(DebugMode) printf("PSRAM mount ok!\r\n");
   }
   else{
-    printf("PSRAM mount error, error code:%d.\r\n",fr);
+    if(DebugMode) printf("PSRAM mount error, error code:%d.\r\n",fr);
     while(1);
   }
   
   MKFS_PARM mkfs_parm_PSRAM = { .fmt = FM_FAT, .n_fat = 2, .align = 1 };
   fr = f_mkfs("/psram", &mkfs_parm_PSRAM, NULL, FF_MIN_SS);
   if (fr == FR_OK){
-    printf("PSRAM f_mkfs Ok!\r\n");
+    if(DebugMode) printf("PSRAM f_mkfs Ok!\r\n");
   }
   else{
-    printf("PSRAMf_mkfs Error, error code:%d.\r\n",fr);
+    if(DebugMode) printf("PSRAMf_mkfs Error, error code:%d.\r\n",fr);
     while(1);
   }
   //---------- E: Mount Flash and PSRAM ----------
@@ -137,7 +141,7 @@ int main(void){
   // boot.json
   fr = f_open(&FlashFile, "/flash/boot.json", FA_CREATE_ALWAYS | FA_WRITE);
   if(fr == FR_OK){
-    printf("open file ok! \r\n");
+    if(DebugMode) printf("open file ok! \r\n");
         
     cJSON *root = cJSON_CreateObject();
     cJSON_AddStringToObject(root, "product", "Modem");
@@ -149,17 +153,17 @@ int main(void){
     
     char *json_str = cJSON_Print(root);
 
-    printf("%d\n", strlen(json_str));
-    printf("%s\n", json_str);        
+    if(DebugMode) printf("%d\n", strlen(json_str));
+    if(DebugMode) printf("%s\n", json_str);        
     
     FS_write_byte = 0;
     fr = f_write(&FlashFile, json_str, strlen(json_str), (void *)&FS_write_byte);
     if(fr == FR_OK){
-      printf("write %d data to file file.\r\n", FS_write_byte);
+      if(DebugMode) printf("write %d data to file file.\r\n", FS_write_byte);
       f_close(&FlashFile);
     }
     else{
-      printf("write error,error code: %d\r\n", fr);
+      if(DebugMode) printf("write error,error code: %d\r\n", fr);
       while(1);
     }
     cJSON_Delete(root);
@@ -167,51 +171,51 @@ int main(void){
 
   }
   else{
-    printf("open file error: %d\r\n", fr);
+    if(DebugMode) printf("open file error: %d\r\n", fr);
     while(1);
   }
   
   // config.json
   fr = f_open(&FlashFile, "/flash/config.json", FA_CREATE_ALWAYS | FA_WRITE);
   if(fr == FR_OK){
-    printf("open file ok! \r\n");
+    if(DebugMode) printf("open file ok! \r\n");
     f_close(&FlashFile);
   }
   else{
-    printf("open file error: %d\r\n", fr);
+    if(DebugMode) printf("open file error: %d\r\n", fr);
   }
   
   // boot.bin
   fr = f_open(&FlashFile, "/flash/boot.bin", FA_CREATE_ALWAYS | FA_WRITE);
   if(fr == FR_OK){
-    printf("open file ok! \r\n");
+    if(DebugMode) printf("open file ok! \r\n");
     f_close(&FlashFile);
   }
   else{
-    printf("open file error: %d\r\n", fr);
+    if(DebugMode) printf("open file error: %d\r\n", fr);
   }
 #endif  
   
   fr = f_open(&FlashFile, "/flash/boot.json", FA_READ);
   if(fr == FR_OK){
-    printf("open file ok! \r\n");    
+    if(DebugMode) printf("open file ok! \r\n");    
     uint32_t json_size = f_size(&FlashFile);
     
     char *json_buffer = (char*) malloc(json_size);
     if(json_buffer == NULL){
       f_close(&FlashFile);
-      printf("Error in memory allocating file\n");
+      if(DebugMode) printf("Error in memory allocating file\n");
       while(1);
     }
     else{
       FS_read_byte = 0;
       f_read(&FlashFile, json_buffer, json_size, &FS_read_byte);
       
-      printf(json_buffer); printf("\n");
+      if(DebugMode) {printf(json_buffer); printf("\n");}
           
       cJSON *root = cJSON_ParseWithLength(json_buffer, FS_read_byte);
       if(root == NULL){
-        printf("Error in reading json file\n");
+        if(DebugMode) printf("Error in reading json file\n");
         while(1);
       }
       
@@ -222,12 +226,14 @@ int main(void){
       Boot.installedver = (uint32_t)(cJSON_GetObjectItem(root, "installedver")->valueint);
       Boot.forceupdate = (uint32_t)(cJSON_GetObjectItem(root, "forceupdate")->valueint);
       
-      printf("product: %s\r\n", Boot.product);
-      printf("releasedate: %s\r\n", Boot.releasedate);
-      printf("bootname: %s\r\n", Boot.bootname);
-      printf("bootver: %d\r\n", Boot.bootver);
-      printf("installedver: %d\r\n", Boot.installedver);
-      printf("forceupdate: %d\r\n", Boot.forceupdate);
+      if(DebugMode) {
+        printf("product: %s\r\n", Boot.product);
+        printf("releasedate: %s\r\n", Boot.releasedate);
+        printf("bootname: %s\r\n", Boot.bootname);
+        printf("bootver: %d\r\n", Boot.bootver);
+        printf("installedver: %d\r\n", Boot.installedver);
+        printf("forceupdate: %d\r\n", Boot.forceupdate);
+      }
       
       // Cleanup
       f_close(&FlashFile);
@@ -236,7 +242,7 @@ int main(void){
     }
   }
   else{
-    printf("open file error: %d\r\n", fr);
+    if(DebugMode) printf("open file error: %d\r\n", fr);
   }
   //----------- E: Boot Firmware -----------
   
@@ -251,7 +257,7 @@ int main(void){
       
       fr = f_open(&FlashFile, bootpath, FA_READ);
       if(fr == FR_OK){
-        printf("open file ok! \r\n");    
+        if(DebugMode) printf("open file ok! \r\n");    
         //uint32_t boot_size = f_size(&FlashFile);
       
         uint8_t *DataPacket = (uint8_t *) malloc(4096U);
@@ -293,13 +299,13 @@ int main(void){
         free(DataPacket____Temp);
       }
       else{
-        printf("open file error: %d\r\n", fr);
+        if(DebugMode) printf("open file error: %d\r\n", fr);
       }
       
       if(ErrorInProgress == false){
         fr = f_open(&FlashFile, "/flash/boot.json", FA_READ | FA_WRITE);
         if(fr == FR_OK){
-          printf("open file ok! \r\n");    
+          if(DebugMode) printf("open file ok! \r\n");    
           uint32_t json_size = f_size(&FlashFile);
         
           char *json_string = (char*) malloc(json_size);
@@ -312,7 +318,7 @@ int main(void){
                           
             cJSON *root = cJSON_ParseWithLength(json_string, FS_read_byte);
             if(root == NULL){
-              printf("Error in reading json file\n");
+              if(DebugMode) printf("Error in reading json file\n");
             }
             else{
               cJSON* boot_installedver = cJSON_GetObjectItem(root, "installedver");
@@ -328,11 +334,11 @@ int main(void){
                   FS_write_byte = 0;
                   fr = f_write(&FlashFile, json_str, strlen(json_str), (void *)&FS_write_byte);
                   if(fr == FR_OK){
-                    printf("write %d data to file file.\r\n", FS_write_byte);
+                    if(DebugMode) printf("write %d data to file file.\r\n", FS_write_byte);
                     FLASH_EXECUTE____FLAG = true;
                   }
                   else{
-                    printf("write error,error code: %d\r\n", fr);
+                    if(DebugMode) printf("write error,error code: %d\r\n", fr);
                     while(1);
                   }
                   cJSON_Delete(boot_forceupdate);
@@ -346,7 +352,7 @@ int main(void){
           }
         }
         else{
-          printf("unable open /flash/boot.json file\n");
+          if(DebugMode) printf("unable open /flash/boot.json file\n");
         }
       }
     }
@@ -428,7 +434,6 @@ int main(void){
         
         // 9. Set the MSP to the value found in the user application vector table.
         __set_MSP((*(__IO uint32_t*)QSPI_BASE));
-        //__set_SP(vector_p->stack_addr);
         
         // 10. Set the PC to the reset vector value of the user application via a function call.
         JumpToApplication = (pFunction)(*(__IO uint32_t*)(QSPI_BASE+4));
